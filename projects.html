@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Projects — Your Name</title>
+		<meta name="description" content="A showcase of selected software projects and experiments.">
+		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="css/projects.css">
+		<script type="module" src="https://cdn.jsdelivr.net/npm/@starfederation/datastar@1.0.0-beta.11/dist/datastar.js"></script>
+	</head>
+	<body>
+
+		<!-- NAV -->
+		<nav class="nav" aria-label="Main navigation">
+			<div class="container nav-inner">
+				<a href="index.html" class="nav-logo">JSL<span>.</span></a>
+				<ul class="nav-links" id="nav-links">
+					<li><a href="projects.html">Projects</a></li>
+					<li><a href="blog.html">Blog</a></li>
+					<li><a href="cv.html">CV</a></li>
+					<li><a href="contact.html" class="nav-cta">Say hello</a></li>
+				</ul>
+				<button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+					<span></span><span></span><span></span>
+				</button>
+			</div>
+		</nav>
+
+		<!-- PAGE HERO -->
+		<div class="page-hero">
+			<div class="container">
+				<p class="section-label animate-fade-up">Work</p>
+				<h1 class="animate-fade-up delay-1">Projects</h1>
+				<p style="max-width:52ch; margin-top: var(--space-md);" class="animate-fade-up delay-2">
+					Things I've built, shipped, and experimented with. From production-grade systems
+					to weekend explorations — each one taught me something.
+				</p>
+			</div>
+		</div>
+
+		<!-- PROJECTS SECTION -->
+		<section class="section">
+			<div class="container">
+
+				<!-- Filter bar — wire up with Datastar signals for live filtering -->
+				<div class="filter-bar" data-store="{ activeFilter: 'all' }">
+					<span class="filter-label">Filter:</span>
+					<button class="filter-btn active" data-on-click="$activeFilter = 'all'" data-class="{ active: $activeFilter === 'all' }">All</button>
+					<button class="filter-btn" data-on-click="$activeFilter = 'web'" data-class="{ active: $activeFilter === 'web' }">Web</button>
+					<button class="filter-btn" data-on-click="$activeFilter = 'cli'" data-class="{ active: $activeFilter === 'cli' }">CLI &amp; Tools</button>
+					<button class="filter-btn" data-on-click="$activeFilter = 'systems'" data-class="{ active: $activeFilter === 'systems' }">Systems</button>
+					<button class="filter-btn" data-on-click="$activeFilter = 'oss'" data-class="{ active: $activeFilter === 'oss' }">Open Source</button>
+				</div>
+
+				<div class="projects-grid">
+
+					<!-- FEATURED project -->
+					<article class="card project-featured animate-fade-up">
+						<div class="project-image">
+							<div class="project-image-placeholder">⬡</div>
+						</div>
+						<div class="card-body">
+							<span class="featured-badge">Featured Project</span>
+							<h2 style="font-size:1.6rem; color: var(--cream); margin-bottom: var(--space-sm);">
+								Project Alpha
+							</h2>
+							<p class="project-desc">
+								A real-time collaboration tool built with WebSockets and a custom CRDT engine.
+								Handles concurrent document edits across thousands of users without merge conflicts.
+								Designed from the ground up with observability in mind — every event is structured
+								and traceable.
+							</p>
+							<div class="project-card-tags" style="margin-bottom: 0;">
+								<span class="tag">Go</span>
+								<span class="tag">WebSockets</span>
+								<span class="tag">PostgreSQL</span>
+								<span class="tag">CRDT</span>
+								<span class="tag">Docker</span>
+							</div>
+							<div class="project-meta">
+								<div class="project-meta-item">
+									<strong>2024</strong>Year
+								</div>
+								<div class="project-meta-item">
+									<strong>Solo</strong>Role
+								</div>
+								<div class="project-meta-item">
+									<span class="status">
+										<span class="status-dot"></span>
+										Production
+									</span>
+								</div>
+							</div>
+							<div class="project-actions">
+								<a href="#" class="btn btn-primary" target="_blank" rel="noopener">Live Demo</a>
+								<a href="#" class="btn btn-outline" target="_blank" rel="noopener">GitHub →</a>
+								<a href="./project/lorem-ipsum.html" class="btn">Read more →</a>
+							</div>
+						</div>
+					</article>
+
+					<!-- Regular project cards -->
+					<article class="card project-card animate-fade-up delay-1">
+						<div class="card-body">
+							<p class="project-card-number mono" style="color: var(--text-muted); font-size: 0.75rem; margin-bottom: var(--space-md);">02</p>
+							<h3 class="project-card-title">Dataflow CLI</h3>
+							<p class="project-card-desc">
+								Orchestrate data pipelines from the terminal. YAML-defined DAGs, automatic retries,
+								parallel execution, and a beautiful live dashboard powered by Bubble Tea.
+							</p>
+							<div class="project-card-tags">
+								<span class="tag">Rust</span>
+								<span class="tag">CLI</span>
+								<span class="tag">YAML</span>
+							</div>
+							<div class="project-card-footer">
+								<div style="display:flex; gap: var(--space-sm);">
+									<a href="#" class="btn btn-ghost" style="font-size:0.8125rem; padding: 0;">GitHub →</a>
+								</div>
+								<span class="status"><span class="status-dot wip"></span>
+								In progress</span>
+							</div>
+						</div>
+					</article>
+
+					<article class="card project-card animate-fade-up delay-2">
+						<div class="card-body">
+							<p class="project-card-number mono" style="color: var(--text-muted); font-size: 0.75rem; margin-bottom: var(--space-md);">03</p>
+							<h3 class="project-card-title">Hypertext Notes</h3>
+							<p class="project-card-desc">
+								A personal knowledge base as a love letter to hypermedia. Powered by Datastar
+								and server-sent events — not a framework in sight beyond the server.
+							</p>
+							<div class="project-card-tags">
+								<span class="tag">Datastar</span>
+								<span class="tag">Python</span>
+								<span class="tag">SSE</span>
+							</div>
+							<div class="project-card-footer">
+								<div style="display:flex; gap: var(--space-sm);">
+									<a href="#" class="btn btn-ghost" style="font-size:0.8125rem; padding: 0;">Live →</a>
+								</div>
+								<span class="status"><span class="status-dot"></span>
+								Live</span>
+							</div>
+						</div>
+					</article>
+
+					<article class="card project-card animate-fade-up delay-3">
+						<div class="card-body">
+							<p class="project-card-number mono" style="color: var(--text-muted); font-size: 0.75rem; margin-bottom: var(--space-md);">04</p>
+							<h3 class="project-card-title">Sigma — Schema Linter</h3>
+							<p class="project-card-desc">
+								An opinionated SQL schema linter that enforces naming conventions, checks
+								index coverage, and flags dangerous migrations before they hit production.
+							</p>
+							<div class="project-card-tags">
+								<span class="tag">Python</span>
+								<span class="tag">SQL</span>
+								<span class="tag tag-ochre">OSS</span>
+							</div>
+							<div class="project-card-footer">
+								<a href="#" class="btn btn-ghost" style="font-size:0.8125rem; padding: 0;">GitHub →</a>
+								<span class="status"><span class="status-dot"></span>
+								Live</span>
+							</div>
+						</div>
+					</article>
+
+					<article class="card project-card animate-fade-up delay-4">
+						<div class="card-body">
+							<p class="project-card-number mono" style="color: var(--text-muted); font-size: 0.75rem; margin-bottom: var(--space-md);">05</p>
+							<h3 class="project-card-title">Retro Ray Tracer</h3>
+							<p class="project-card-desc">
+								A weekend ray tracer written from scratch in C, following Peter Shirley's
+								series, then extended with BVH acceleration and multi-threaded rendering.
+							</p>
+							<div class="project-card-tags">
+								<span class="tag">C</span>
+								<span class="tag">Graphics</span>
+								<span class="tag">Multi-threading</span>
+							</div>
+							<div class="project-card-footer">
+								<a href="#" class="btn btn-ghost" style="font-size:0.8125rem; padding: 0;">GitHub →</a>
+								<span class="status"><span class="status-dot"></span>
+								Complete</span>
+							</div>
+						</div>
+					</article>
+				</div>
+			</div>
+		</section>
+
+		<!-- FOOTER -->
+		<footer class="footer">
+			<div class="container footer-inner">
+				<span class="footer-copy">© 2025 Your Name. Built with Datastar &amp; craft.</span>
+				<nav class="footer-links" aria-label="Footer navigation">
+					<a href="https://github.com/joaoLouceiro" target="_blank" rel="noopener">GitHub</a>
+					<a href="https://linkedin.com/in/joao-louceiro/" target="_blank" rel="noopener">LinkedIn</a>
+					<a href="contact.html">Contact</a>
+				</nav>
+			</div>
+		</footer>
+
+		<script>
+			const toggle = document.getElementById('nav-toggle');
+			const links  = document.getElementById('nav-links');
+			toggle.addEventListener('click', () => {
+				const open = links.classList.toggle('open');
+				toggle.setAttribute('aria-expanded', open);
+				});
+		</script>
+	</body>
+</html>

@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!--
+    URL pattern: /blog/post/<id>
+    ─────────────────────────────────────────────────────────
+    With a static file server that supports directory indexes,
+    place each post at:
+
+      blog/post/why-i-stopped-reaching-for-react/index.html
+      blog/post/hypermedia-is-back/index.html
+      ...
+
+    This makes them accessible at:
+
+      /blog/post/why-i-stopped-reaching-for-react
+      /blog/post/hypermedia-is-back
+
+    With Datastar + a backend server (Go, Python, Node, etc.),
+    you can instead serve this single template dynamically and
+    inject post content via SSE using data-on-load:
+
+      <main data-on-load="@get('/api/posts/' + location.pathname.split('/').pop())">
+
+    CSS paths use ../css/ since this file sits two levels deep.
+  -->
+
+  <title>Why I stopped reaching for React — Your Name</title>
+  <meta name="description" content="What happens when you build a real project without React? Three months later, here's what I found." />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Why I stopped reaching for React" />
+  <meta property="og:description" content="What happens when you build a real project without React? Three months later, here's what I found." />
+  <meta property="og:type" content="article" />
+  <meta property="article:published_time" content="2025-03-15" />
+  <meta property="article:author" content="Your Name" />
+  <meta property="article:tag" content="Architecture" />
+  <meta property="article:tag" content="Hypermedia" />
+
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/post.css" />
+  <script type="module" src="https://cdn.jsdelivr.net/npm/@starfederation/datastar@1.0.0-beta.11/dist/datastar.js"></script>
+</head>
+<body>
+
+  <!-- Reading progress bar -->
+  <div class="reading-progress" aria-hidden="true">
+    <div class="reading-progress-bar" id="progress-bar"></div>
+  </div>
+
+  <!-- ═══════════════════════════ NAV ═══════════════════════════ -->
+  <nav class="nav" aria-label="Main navigation">
+    <div class="container nav-inner">
+      <a href="../index.html" class="nav-logo">YN<span>.</span></a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="../projects.html">Projects</a></li>
+        <li><a href="../blog.html">Blog</a></li>
+        <li><a href="../cv.html">CV</a></li>
+        <li><a href="../contact.html" class="nav-cta">Say hello</a></li>
+      </ul>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ══════════════════════ POST HEADER ══════════════════════ -->
+  <header class="post-header">
+    <div class="container">
+      <div class="post-header-inner">
+
+        <a href="../blog.html" class="post-back animate-fade-up">
+          <span class="arrow">←</span> All posts
+        </a>
+
+        <div class="post-meta-row animate-fade-up delay-1">
+          <span class="post-category">Opinion</span>
+          <div class="post-date-read">
+            <span>March 15, 2025</span>
+            <span class="sep"></span>
+            <span>7 min read</span>
+          </div>
+        </div>
+
+        <h1 class="post-title animate-fade-up delay-2">
+          Why I stopped reaching for React
+        </h1>
+
+        <p class="post-subtitle animate-fade-up delay-3">
+          It started with a greenfield project and a stubborn question:
+          what if I didn't? Not as an exercise in minimalism, but as a genuine
+          architectural choice. Three months later, here's what I found.
+        </p>
+
+        <div class="post-tags animate-fade-up delay-4">
+          <span class="tag tag-ochre">Opinion</span>
+          <span class="tag">Architecture</span>
+          <span class="tag">Hypermedia</span>
+          <span class="tag">Datastar</span>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- ═══════════════════════ POST CONTENT ═══════════════════════ -->
+  <div class="container">
+    <div class="post-layout">
+
+      <!-- ── Main prose ── -->
+      <article class="post-body" id="post-content">
+
+        <p>
+          Every new project starts the same way. You open a terminal, you type
+          <code>npm create vite@latest</code>, and before you've written a single
+          line of business logic you already have a framework, a bundler, a linting
+          config, and enough <code>node_modules</code> to fill a hard drive.
+          I did this for years without questioning it.
+        </p>
+
+        <p>
+          Then came a project where I didn't have the luxury of that ritual.
+          Tight deadline, limited hosting, a backend colleague who hadn't written
+          JavaScript since 2012. The question surfaced almost by accident:
+          <em>does this actually need React?</em>
+        </p>
+
+        <h2 id="the-experiment">The experiment</h2>
+
+        <p>
+          I decided to build the whole thing with Datastar — a hypermedia framework
+          that leans into server-sent events and HTML-first thinking. No virtual DOM.
+          No component lifecycle. No hydration mismatch errors at 11 PM on a Friday.
+        </p>
+
+        <p>
+          The stack was deliberately boring: a Go server, PostgreSQL, plain HTML
+          templates, and Datastar for the interactive bits. Here's what the main
+          entry point looked like:
+        </p>
+
+        <pre data-lang="go"><code>func main() {
+    mux := http.NewServeMux()
+    mux.HandleFunc("GET /", handleIndex)
+    mux.HandleFunc("GET /api/posts", handlePosts)
+    mux.HandleFunc("POST /api/contact", handleContact)
+
+    log.Println("Listening on :8080")
+    http.ListenAndServe(":8080", mux)
+}</code></pre>
+
+        <p>
+          That's it. No webpack. No tree-shaking. No SSR configuration.
+          Just a server that serves HTML and responds to fetch requests
+          with more HTML — or in Datastar's case, server-sent events that
+          patch the DOM.
+        </p>
+
+        <h2 id="what-surprised-me">What surprised me</h2>
+
+        <p>
+          Three things caught me off guard, in roughly this order of surprise.
+        </p>
+
+        <h3 id="1-it-was-fast">1. It was genuinely fast</h3>
+
+        <p>
+          Not "fast enough" — actually fast. No client-side JavaScript bundle
+          to parse and execute before the user sees anything. The first meaningful
+          paint happened in under 200ms on a 3G throttled connection.
+          React's reconciler never ran, because there was no reconciler.
+        </p>
+
+        <blockquote>
+          <p>
+            The fastest JavaScript is the JavaScript you don't ship. The second
+            fastest is the JavaScript you ship but don't execute until needed.
+            Hypermedia is mostly the first one.
+          </p>
+        </blockquote>
+
+        <h3 id="2-forms-just-worked">2. Forms just worked</h3>
+
+        <p>
+          This one felt almost embarrassing. I've spent hours debugging controlled
+          component state, form validation timing, and <code>onChange</code> vs
+          <code>onBlur</code> semantics in React. With Datastar and standard HTML
+          form elements, the browser just handled it. Validation attributes, tab
+          order, accessibility — all there by default.
+        </p>
+
+        <pre data-lang="html"><code>&lt;form data-on-submit="@post('/api/contact')"&gt;
+  &lt;input
+    type="email"
+    name="email"
+    required
+    placeholder="you@example.com"
+  /&gt;
+  &lt;textarea name="message" minlength="20" required&gt;&lt;/textarea&gt;
+  &lt;button type="submit"&gt;Send&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+
+        <p>
+          The server responds with an SSE fragment that replaces the form
+          with a success message. Progressive enhancement for free — if
+          JavaScript is disabled, the form still submits normally.
+        </p>
+
+        <h3 id="3-complexity-didnt-accumulate">3. Complexity didn't accumulate</h3>
+
+        <p>
+          This is the one I think about most. In React projects, complexity
+          has a way of compounding. State management starts simple, then
+          you need global state, then you need derived state, then you need
+          memoisation to stop re-renders. Each solution introduces new abstractions.
+        </p>
+
+        <p>
+          The hypermedia approach kept complexity local. Each page was dumb by
+          default. Interactivity lived at the edges, where it was genuinely needed.
+          The mental model never expanded beyond "click button, server does thing,
+          page updates."
+        </p>
+
+        <div class="callout">
+          Worth noting: Datastar is not HTMX. It uses signals and a reactive
+          store model alongside its hypermedia primitives. You get fine-grained
+          reactivity where you want it, server-driven updates where you don't.
+        </div>
+
+        <h2 id="where-react-still-wins">Where React still wins</h2>
+
+        <p>
+          I'm not here to bury React. There are real cases where a rich
+          client-side component model is the right tool:
+        </p>
+
+        <ul>
+          <li>Complex offline-capable applications with heavy local state</li>
+          <li>Data visualisations with high-frequency DOM updates</li>
+          <li>Collaborative real-time editors where latency to the server matters</li>
+          <li>Large teams where component encapsulation aids code organisation</li>
+        </ul>
+
+        <p>
+          But notice how specific those cases are. The majority of web
+          applications — CRUD interfaces, content sites, dashboards,
+          contact forms, e-commerce flows — don't live in that list.
+        </p>
+
+        <h2 id="the-conclusion">The conclusion</h2>
+
+        <p>
+          Three months on, the project is in production. It's fast, it's
+          maintainable, and my backend colleague understands every line of it.
+          We've shipped three new features without touching a <code>package.json</code>.
+        </p>
+
+        <p>
+          The lesson isn't "React bad." It's that every tool carries assumptions,
+          and the most dangerous assumptions are the ones you stopped questioning.
+          Question them. Sometimes you'll reach for React anyway — and that's fine.
+          But at least it'll be a choice.
+        </p>
+
+        <hr />
+
+        <!-- Post footer (within prose) -->
+        <div class="post-footer">
+          <p class="post-footer-label">Read next</p>
+          <div class="related-grid">
+
+            <a href="../hypermedia-is-back/index.html" class="related-card">
+              <p class="related-card-date">Feb 3, 2025</p>
+              <h3 class="related-card-title">Hypermedia is back, and it's better than ever</h3>
+              <p class="related-card-excerpt">
+                A technical look at what makes HTMX, Datastar, and friends
+                different from the SPA wave that came before.
+              </p>
+            </a>
+
+            <a href="../boring-technology/index.html" class="related-card">
+              <p class="related-card-date">Dec 5, 2024</p>
+              <h3 class="related-card-title">The quiet joy of boring technology</h3>
+              <p class="related-card-excerpt">
+                A love letter to Postgres, cron jobs, and the timeless wisdom
+                of choosing proven tools over shiny ones.
+              </p>
+            </a>
+
+          </div>
+        </div>
+
+      </article>
+
+      <!-- ── Sidebar ── -->
+      <aside class="post-sidebar" aria-label="Post navigation">
+
+        <!-- Table of contents -->
+        <nav class="toc-widget" aria-label="Table of contents">
+          <h2 class="toc-title">Contents</h2>
+          <div class="toc-list" id="toc">
+            <a class="toc-item active" href="#the-experiment">The experiment</a>
+            <a class="toc-item" href="#what-surprised-me">What surprised me</a>
+            <a class="toc-item toc-h3" href="#1-it-was-fast">It was genuinely fast</a>
+            <a class="toc-item toc-h3" href="#2-forms-just-worked">Forms just worked</a>
+            <a class="toc-item toc-h3" href="#3-complexity-didnt-accumulate">Complexity didn't accumulate</a>
+            <a class="toc-item" href="#where-react-still-wins">Where React still wins</a>
+            <a class="toc-item" href="#the-conclusion">The conclusion</a>
+          </div>
+        </nav>
+
+        <!-- Author -->
+        <div class="author-widget">
+          <h2 class="author-widget-title">Author</h2>
+          <div class="author-row">
+            <div class="author-avatar">👾</div>
+            <div>
+              <div class="author-name">Your Name</div>
+              <div class="author-handle">@yourhandle</div>
+            </div>
+          </div>
+          <p class="author-bio">
+            Full-stack developer with a soft spot for hypermedia, boring
+            databases, and systems that hold together at 3 AM.
+          </p>
+        </div>
+
+        <!-- Share -->
+        <div class="share-widget">
+          <h2 class="share-title">Share</h2>
+          <div class="share-links">
+            <a class="share-link" href="#" id="copy-link">
+              <span class="icon">⊕</span> Copy link
+            </a>
+            <a class="share-link"
+               href="https://twitter.com/intent/tweet?text=Why+I+stopped+reaching+for+React&url="
+               target="_blank" rel="noopener">
+              <span class="icon">𝕏</span> Share on X
+            </a>
+            <a class="share-link"
+               href="https://news.ycombinator.com/submitlink?u=&t=Why+I+stopped+reaching+for+React"
+               target="_blank" rel="noopener">
+              <span class="icon">▲</span> Post to HN
+            </a>
+          </div>
+        </div>
+
+      </aside>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════ FOOTER ═══════════════════════════ -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span class="footer-copy">© 2025 Your Name. Built with Datastar &amp; craft.</span>
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="https://github.com" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://linkedin.com" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="../contact.html">Contact</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script>
+    // ── Mobile nav ───────────────────────────────────────────────
+    const toggle = document.getElementById('nav-toggle');
+    const links  = document.getElementById('nav-links');
+    toggle.addEventListener('click', () => {
+      const open = links.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', open);
+    });
+
+    // ── Reading progress bar ─────────────────────────────────────
+    const bar = document.getElementById('progress-bar');
+    function updateProgress() {
+      const doc    = document.documentElement;
+      const scrolled = doc.scrollTop;
+      const total  = doc.scrollHeight - doc.clientHeight;
+      bar.style.width = total > 0 ? (scrolled / total * 100) + '%' : '0%';
+    }
+    window.addEventListener('scroll', updateProgress, { passive: true });
+
+    // ── Active TOC item on scroll ────────────────────────────────
+    const headings = document.querySelectorAll('.post-body h2[id], .post-body h3[id]');
+    const tocItems = document.querySelectorAll('.toc-item');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          tocItems.forEach(item => item.classList.remove('active'));
+          const active = document.querySelector(`.toc-item[href="#${entry.target.id}"]`);
+          if (active) active.classList.add('active');
+        }
+      });
+    }, { rootMargin: '-20% 0% -70% 0%' });
+
+    headings.forEach(h => observer.observe(h));
+
+    // ── Copy link ────────────────────────────────────────────────
+    document.getElementById('copy-link').addEventListener('click', async (e) => {
+      e.preventDefault();
+      try {
+        await navigator.clipboard.writeText(location.href);
+        const el = e.currentTarget;
+        const original = el.innerHTML;
+        el.innerHTML = '<span class="icon">✓</span> Copied!';
+        setTimeout(() => { el.innerHTML = original; }, 2000);
+      } catch {}
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Contact — JLouceiro</title>
+		<meta name="description" content="Get in touch — project inquiries, collaborations, or just to say hi.">
+		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="css/pages.css">
+		<script type="module" src="https://cdn.jsdelivr.net/npm/@starfederation/datastar@1.0.0-beta.11/dist/datastar.js"></script>
+	</head>
+	<body>
+
+		<!-- NAV -->
+		<nav class="nav" aria-label="Main navigation">
+			<div class="container nav-inner">
+				<a href="index.html" class="nav-logo">JSL<span>.</span></a>
+				<ul class="nav-links" id="nav-links">
+					<li><a href="projects.html">Projects</a></li>
+					<li><a href="blog.html">Blog</a></li>
+					<li><a href="cv.html">CV</a></li>
+					<li><a href="contact.html" class="nav-cta">Say hello</a></li>
+				</ul>
+				<button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+					<span></span><span></span><span></span>
+				</button>
+			</div>
+		</nav>
+
+		<!-- PAGE HERO -->
+		<div class="page-hero">
+			<div class="container">
+				<p class="section-label animate-fade-up">Get in touch</p>
+				<h1 class="animate-fade-up delay-1">Say Hello</h1>
+				<p style="max-width:50ch; margin-top: var(--space-md);" class="animate-fade-up delay-2">
+					Whether you have a project in mind, want to chat about hypermedia,
+					or just want to say hi — my inbox is open.
+				</p>
+			</div>
+		</div>
+
+		<!-- CONTACT CONTENT -->
+		<section class="section">
+			<div class="container">
+				<div class="contact-layout">
+
+					<!-- Left: info -->
+					<div class="animate-fade-up">
+						<p class="contact-intro">
+							I'm currently available for freelance projects, contract work,
+							and interesting full-time roles. If something you're building
+							sounds like a good fit, let's talk.
+						</p>
+
+						<div class="contact-channels">
+							<div class="contact-channel">
+								<div class="channel-icon">✉</div>
+								<div>
+									<p class="channel-label">Email</p>
+									<p class="channel-value">
+										<a href="mailto:hello@yourname.dev">hello@yourname.dev</a>
+									</p>
+								</div>
+							</div>
+
+							<div class="contact-channel">
+								<div class="channel-icon">⌥</div>
+								<div>
+									<p class="channel-label">GitHub</p>
+									<p class="channel-value">
+										<a href="https://github.com" target="_blank" rel="noopener">github.com/yourname</a>
+									</p>
+								</div>
+							</div>
+
+							<div class="contact-channel">
+								<div class="channel-icon">in</div>
+								<div>
+									<p class="channel-label">LinkedIn</p>
+									<p class="channel-value">
+										<a href="https://linkedin.com" target="_blank" rel="noopener">linkedin.com/in/yourname</a>
+									</p>
+								</div>
+							</div>
+						</div>
+
+						<div class="availability-badge">
+							<span class="dot"></span>
+							Available for new projects — response within 48 h
+						</div>
+					</div>
+
+					<!-- Right: form -->
+					<!--
+          Datastar form example:
+          Wire data-store to your server endpoint.
+          Replace data-on-submit with your actual POST action using
+          data-on-submit="@post('/api/contact')" or similar.
+        -->
+					<div class="contact-form-panel animate-fade-up delay-2" data-store="{
+               name: '',
+               email: '',
+               subject: '',
+               message: '',
+               sending: false,
+               sent: false
+             }">
+
+						<h2 class="form-title">Send a message</h2>
+						<p class="form-subtitle">
+							I'll get back to you as soon as I can — usually within a day or two.
+						</p>
+
+						<!-- Success message (shown after Datastar confirms send) -->
+						<div class="form-success" data-show="$sent" style="display:none; color: var(--moss-light); text-align:center; padding: var(--space-xl) 0;">
+							<div style="font-size:2rem; margin-bottom: var(--space-md);">✓</div>
+							<h3 style="color: var(--moss-light); margin-bottom: var(--space-sm);">Message sent!</h3>
+							<p style="max-width: none; color: var(--text-secondary);">
+								Thanks for reaching out. I'll be in touch soon.
+							</p>
+						</div>
+
+						<!-- Form (hidden after send) -->
+						<div data-show="!$sent">
+							<div class="form-row">
+								<div class="form-group">
+									<label for="name">Name</label>
+									<input id="name" type="text" placeholder="Ada Lovelace" autocomplete="name" data-model="name" required>
+								</div>
+								<div class="form-group">
+									<label for="email">Email</label>
+									<input id="email" type="email" placeholder="ada@example.com" autocomplete="email" data-model="email" required>
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label for="subject">Subject</label>
+								<input id="subject" type="text" placeholder="Project inquiry / Just saying hi / ..." data-model="subject">
+							</div>
+
+							<div class="form-group">
+								<label for="message">Message</label>
+								<textarea id="message"
+								          placeholder="Tell me about your project, idea, or question..."
+								          data-model="message"
+								          required
+								></textarea>
+							</div>
+
+							<div class="form-submit-row">
+								<p class="form-note">
+									No spam, no newsletter sign-ups. Just a reply from me.
+								</p>
+								<!--
+                Replace data-on-click with your Datastar action:
+                data-on-click="@post('/api/contact', {contentType: 'json'})"
+                The server should return a Datastar SSE event to update $sent = true
+              -->
+								<button class="btn btn-primary"
+								        data-on-click="$sending = true"
+								        data-attr-disabled="$sending"
+								        type="button"
+								>
+									<span data-show="!$sending">Send message →</span>
+									<span data-show="$sending" style="display:none;">Sending…</span>
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- FOOTER -->
+		<footer class="footer">
+			<div class="container footer-inner">
+				<span class="footer-copy">© 2025 JLouceiro. Built with Datastar &amp; craft.</span>
+				<nav class="footer-links" aria-label="Footer navigation">
+					<a href="https://github.com/joaoLouceiro" target="_blank" rel="noopener">GitHub</a>
+					<a href="https://linkedin.com/in/joao-louceiro/" target="_blank" rel="noopener">LinkedIn</a>
+					<a href="contact.html">Contact</a>
+				</nav>
+			</div>
+		</footer>
+
+		<script>
+			const toggle = document.getElementById('nav-toggle');
+			const links  = document.getElementById('nav-links');
+			toggle.addEventListener('click', () => {
+				const open = links.classList.toggle('open');
+				toggle.setAttribute('aria-expanded', open);
+				});
+		</script>
+	</body>
+</html>

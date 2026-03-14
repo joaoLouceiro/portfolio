@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>JSL — Developer & Builder</title>
+		<meta name="description" content="Developer portfolio — projects, thoughts, and CV.">
+		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="css/index.css">
+		<script type="module" src="https://cdn.jsdelivr.net/npm/@starfederation/datastar@1.0.0-beta.11/dist/datastar.js"></script>
+	</head>
+	<body>
+
+		<!-- ═══════════════════════════ NAV ═══════════════════════════ -->
+		<nav class="nav" aria-label="Main navigation">
+			<div class="container nav-inner">
+				<a href="index.html" class="nav-logo">JRL<span>.</span></a>
+
+				<ul class="nav-links" id="nav-links">
+					<li><a href="projects.html">Projects</a></li>
+					<li><a href="blog.html">Blog</a></li>
+					<li><a href="cv.html">CV</a></li>
+					<li><a href="contact.html" class="nav-cta">Say hello</a></li>
+				</ul>
+
+				<button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+					<span></span><span></span><span></span>
+				</button>
+			</div>
+		</nav>
+
+		<!-- ══════════════════════════ HERO ══════════════════════════ -->
+		<section class="hero">
+			<div class="container hero-inner">
+
+				<div class="hero-eyebrow animate-fade-up">
+					<span class="dot"></span>
+					Available for new opportunities
+				</div>
+
+				<h1 class="hero-name animate-fade-up delay-1">
+					J.Louceiro
+					<span class="accent">builds things.</span>
+				</h1>
+
+				<p class="hero-title animate-fade-up delay-2">
+					<span id="typed-role">Full-Stack Developer</span><span class="cursor"></span>
+				</p>
+
+				<p class="hero-bio animate-fade-up delay-3">
+					I craft thoughtful software with an obsession for clean code, good UX,
+					and systems that <em>actually</em>
+					hold together at scale.
+				</p>
+
+				<div class="hero-actions animate-fade-up delay-4">
+					<a href="projects.html" class="btn btn-primary">View Projects</a>
+					<a href="cv.html" class="btn btn-outline">Read my CV</a>
+					<a href="blog.html" class="btn btn-ghost">
+						Latest thoughts <span class="arrow">→</span>
+					</a>
+				</div>
+
+				<div class="hero-stats animate-fade-up delay-5">
+					<div>
+						<div class="hero-stat-value">12<span>+</span></div>
+						<div class="hero-stat-label">Projects shipped</div>
+					</div>
+					<div>
+						<div class="hero-stat-value">4<span>yr</span></div>
+						<div class="hero-stat-label">Experience</div>
+					</div>
+					<div>
+						<div class="hero-stat-value">∞</div>
+						<div class="hero-stat-label">Curiosity</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="hero-scroll scroll-indicator">
+				<div class="line"></div>
+				<span>scroll</span>
+			</div>
+		</section>
+
+		<!-- ══════════════════════ FEATURED PROJECTS ══════════════════════ -->
+		<section class="section featured">
+			<div class="container">
+				<p class="section-label">Work</p>
+				<div class="section-title">
+					<h2>Selected Projects</h2>
+				</div>
+
+				<div class="featured-grid">
+
+					<!-- Project card 1 -->
+					<article class="card project-card">
+						<div class="card-body">
+							<p class="project-card-number">01 / 03</p>
+							<h3 class="project-card-title">Project Alpha</h3>
+							<p class="project-card-desc">
+								A real-time collaboration tool built with WebSockets and a custom CRDT
+								engine. Handles concurrent edits across thousands of users without conflict.
+							</p>
+							<div class="project-card-tags">
+								<span class="tag">Go</span>
+								<span class="tag">WebSockets</span>
+								<span class="tag">PostgreSQL</span>
+							</div>
+							<div class="project-card-footer">
+								<a href="projects.html" class="project-link">View case study →</a>
+								<span class="status">
+									<span class="status-dot"></span>
+									Live
+								</span>
+							</div>
+						</div>
+					</article>
+
+					<!-- Project card 2 -->
+					<article class="card project-card">
+						<div class="card-body">
+							<p class="project-card-number">02 / 03</p>
+							<h3 class="project-card-title">Dataflow CLI</h3>
+							<p class="project-card-desc">
+								A command-line tool for orchestrating data pipelines. YAML-defined DAGs,
+								automatic retries, and a beautiful terminal dashboard built with Bubble Tea.
+							</p>
+							<div class="project-card-tags">
+								<span class="tag">Rust</span>
+								<span class="tag">CLI</span>
+								<span class="tag">YAML</span>
+							</div>
+							<div class="project-card-footer">
+								<a href="projects.html" class="project-link">View case study →</a>
+								<span class="status">
+									<span class="status-dot wip"></span>
+									In progress
+								</span>
+							</div>
+						</div>
+					</article>
+
+					<!-- Project card 3 -->
+					<article class="card project-card">
+						<div class="card-body">
+							<p class="project-card-number">03 / 03</p>
+							<h3 class="project-card-title">Hypertext Notes</h3>
+							<p class="project-card-desc">
+								A personal knowledge base exploring hypermedia-driven UIs using Datastar.
+								Zero JS frameworks, purely hypermedia controls and server-sent events.
+							</p>
+							<div class="project-card-tags">
+								<span class="tag">Datastar</span>
+								<span class="tag">SSE</span>
+								<span class="tag">Python</span>
+							</div>
+							<div class="project-card-footer">
+								<a href="projects.html" class="project-link">View case study →</a>
+								<span class="status">
+									<span class="status-dot"></span>
+									Live
+								</span>
+							</div>
+						</div>
+					</article>
+				</div>
+
+				<div style="text-align:center; margin-top: var(--space-xl);">
+					<a href="projects.html" class="btn btn-outline">All Projects →</a>
+				</div>
+			</div>
+		</section>
+
+		<!-- ════════════════════════ LATEST POSTS ════════════════════════ -->
+		<section class="section">
+			<div class="container">
+				<p class="section-label">Thinking</p>
+				<div class="section-title">
+					<h2>Latest from the Blog</h2>
+				</div>
+
+				<div class="posts-list">
+					<a href="blog.html" class="post-row">
+						<span class="post-date">Mar 2025</span>
+						<span class="post-title">Why I stopped reaching for React</span>
+						<span class="tag tag-ochre post-tag">Opinion</span>
+					</a>
+					<a href="blog.html" class="post-row">
+						<span class="post-date">Feb 2025</span>
+						<span class="post-title">Hypermedia is back, and it's better than ever</span>
+						<span class="tag post-tag">Deep Dive</span>
+					</a>
+					<a href="blog.html" class="post-row">
+						<span class="post-date">Jan 2025</span>
+						<span class="post-title">Building observable systems from day one</span>
+						<span class="tag post-tag">Engineering</span>
+					</a>
+					<a href="blog.html" class="post-row">
+						<span class="post-date">Dec 2024</span>
+						<span class="post-title">The quiet joy of boring technology</span>
+						<span class="tag tag-ochre post-tag">Opinion</span>
+					</a>
+				</div>
+
+				<div style="margin-top: var(--space-lg);">
+					<a href="blog.html" class="btn btn-ghost">All posts <span class="arrow">→</span></a>
+				</div>
+			</div>
+		</section>
+
+		<!-- ═══════════════════════════ FOOTER ═══════════════════════════ -->
+		<footer class="footer">
+			<div class="container footer-inner">
+				<span class="footer-copy">© 2025 JLouceiro. Built with Datastar &amp; craft.</span>
+				<nav class="footer-links" aria-label="Footer navigation">
+					<a href="https://github.com/joaoLouceiro" target="_blank" rel="noopener">GitHub</a>
+					<a href="https://linkedin.com/in/joao-louceiro/" target="_blank" rel="noopener">LinkedIn</a>
+					<a href="contact.html">Contact</a>
+				</nav>
+			</div>
+		</footer>
+
+		<script>
+			// Mobile nav toggle
+			const toggle = document.getElementById('nav-toggle');
+			const links  = document.getElementById('nav-links');
+			toggle.addEventListener('click', () => {
+				const open = links.classList.toggle('open');
+				toggle.setAttribute('aria-expanded', open);
+				});
+				
+				// Simple typewriter for hero role
+				const roles = ['Full-Stack Developer', 'Systems Thinker', 'Hypermedia Enthusiast', 'Open-Source Contributor'];
+				let ri = 0, ci = 0, deleting = false;
+				const el = document.getElementById('typed-role');
+				function type() {
+					const word = roles[ri];
+					el.textContent = deleting ? word.slice(0, ci--) : word.slice(0, ci++);
+					if (!deleting && ci > word.length) { deleting = true; setTimeout(type, 1800); return; }
+					if (deleting && ci < 0)            { deleting = false; ri = (ri + 1) % roles.length; ci = 0; }
+					setTimeout(type, deleting ? 45 : 90);
+				}
+				type();
+		</script>
+	</body>
+</html>
