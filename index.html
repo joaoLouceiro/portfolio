@@ -3,245 +3,285 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>JSL — Developer & Builder</title>
-		<meta name="description" content="Developer portfolio — projects, thoughts, and CV.">
-		<link rel="stylesheet" href="css/style.css">
-		<link rel="stylesheet" href="css/index.css">
-		<script type="module" src="https://cdn.jsdelivr.net/npm/@starfederation/datastar@1.0.0-beta.11/dist/datastar.js"></script>
+		<title>JLouceiro — Web Dev & Low-Level Explorer</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Mono:wght@300;400;500&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="style.css">
 	</head>
 	<body>
 
-		<!-- ═══════════════════════════ NAV ═══════════════════════════ -->
-		<nav class="nav" aria-label="Main navigation">
-			<div class="container nav-inner">
-				<a href="index.html" class="nav-logo">JRL<span>.</span></a>
-
-				<ul class="nav-links" id="nav-links">
-					<li><a href="projects.html">Projects</a></li>
-					<li><a href="blog.html">Blog</a></li>
-					<li><a href="cv.html">CV</a></li>
-					<li><a href="contact.html" class="nav-cta">Say hello</a></li>
-				</ul>
-
-				<button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
-					<span></span><span></span><span></span>
-				</button>
-			</div>
+		<!-- NAV -->
+		<nav class="nav">
+			<span class="nav__logo">~/jlouceiro</span>
+			<ul class="nav__links">
+				<li><a href="#about">about</a></li>
+				<li><a href="#skills">skills</a></li>
+				<li><a href="#projects">projects</a></li>
+				<li style="display: none"><a href="thoughts.html">thoughts</a></li>
+				<li><a href="#contact">contact</a></li>
+				<li><a href="#cv" class="nav__cv-link">cv</a></li>
+			</ul>
 		</nav>
 
-		<!-- ══════════════════════════ HERO ══════════════════════════ -->
+		<!-- HERO -->
 		<section class="hero">
-			<div class="container hero-inner">
-
-				<div class="hero-eyebrow animate-fade-up">
-					<span class="dot"></span>
-					Available for new opportunities
-				</div>
-
-				<h1 class="hero-name animate-fade-up delay-1">
-					J.Louceiro
-					<span class="accent">builds things.</span>
-				</h1>
-
-				<p class="hero-title animate-fade-up delay-2">
-					<span id="typed-role">Full-Stack Developer</span><span class="cursor"></span>
+			<div class="hero__grain"></div>
+			<div class="hero__content">
+				<p class="hero__eyebrow">web developer · low-level learner · climber</p>
+				<h1 class="hero__name">João<br><em>Louceiro</em></h1>
+				<p class="hero__tagline">
+					I build things for the web and am slowly learning how they work under the hood.
+					When I'm not at the keyboard, I'm on a rock face.
 				</p>
-
-				<p class="hero-bio animate-fade-up delay-3">
-					I craft thoughtful software with an obsession for clean code, good UX,
-					and systems that <em>actually</em>
-					hold together at scale.
-				</p>
-
-				<div class="hero-actions animate-fade-up delay-4">
-					<a href="projects.html" class="btn btn-primary">View Projects</a>
-					<a href="cv.html" class="btn btn-outline">Read my CV</a>
-					<a href="blog.html" class="btn btn-ghost">
-						Latest thoughts <span class="arrow">→</span>
-					</a>
+				<div class="hero__tools">
+					<span class="tag">NeoVim</span>
+					<span class="tag">Linux</span>
+					<span class="tag">Java</span>
+					<span class="tag">C</span>
 				</div>
-
-				<div class="hero-stats animate-fade-up delay-5">
-					<div>
-						<div class="hero-stat-value">12<span>+</span></div>
-						<div class="hero-stat-label">Projects shipped</div>
-					</div>
-					<div>
-						<div class="hero-stat-value">4<span>yr</span></div>
-						<div class="hero-stat-label">Experience</div>
-					</div>
-					<div>
-						<div class="hero-stat-value">∞</div>
-						<div class="hero-stat-label">Curiosity</div>
-					</div>
-				</div>
+				<a href="#projects" class="btn">See my work ↓</a>
 			</div>
-
-			<div class="hero-scroll scroll-indicator">
-				<div class="line"></div>
-				<span>scroll</span>
+			<div class="hero__visual" aria-hidden="true">
+				<div class="topo-lines"></div>
+				<div class="hero__carabiner">⬡</div>
 			</div>
 		</section>
 
-		<!-- ══════════════════════ FEATURED PROJECTS ══════════════════════ -->
-		<section class="section featured">
-			<div class="container">
-				<p class="section-label">Work</p>
-				<div class="section-title">
-					<h2>Selected Projects</h2>
+		<!-- ABOUT -->
+		<section class="section about" id="about">
+			<div class="section__label">01 / about</div>
+			<div class="about__grid">
+				<div class="about__text">
+					<h2 class="section__heading">Who I am</h2>
+					<p>
+						I'm a web developer based in Portugal, currently between jobs and using the time well —
+						reading low-level programming books, sharpening my C, and slowly befriending Rust.
+						I believe the best way to understand high-level abstractions is to go low.
+					</p>
+					<p>
+						I live in NeoVim and Linux. Not because it's trendy — because it makes me think about
+						what's actually happening on my machine. Same reason I climb: it demands full presence
+						and honest feedback.
+					</p>
+					<p>
+						I'm curious, methodical, and interested in craft. I read a lot — mostly technical books
+						on systems, compilers, and computer architecture — and I take notes.
+					</p>
 				</div>
-
-				<div class="featured-grid">
-
-					<!-- Project card 1 -->
-					<article class="card project-card">
-						<div class="card-body">
-							<p class="project-card-number">01 / 03</p>
-							<h3 class="project-card-title">Project Alpha</h3>
-							<p class="project-card-desc">
-								A real-time collaboration tool built with WebSockets and a custom CRDT
-								engine. Handles concurrent edits across thousands of users without conflict.
-							</p>
-							<div class="project-card-tags">
-								<span class="tag">Go</span>
-								<span class="tag">WebSockets</span>
-								<span class="tag">PostgreSQL</span>
-							</div>
-							<div class="project-card-footer">
-								<a href="projects.html" class="project-link">View case study →</a>
-								<span class="status">
-									<span class="status-dot"></span>
-									Live
-								</span>
-							</div>
-						</div>
-					</article>
-
-					<!-- Project card 2 -->
-					<article class="card project-card">
-						<div class="card-body">
-							<p class="project-card-number">02 / 03</p>
-							<h3 class="project-card-title">Dataflow CLI</h3>
-							<p class="project-card-desc">
-								A command-line tool for orchestrating data pipelines. YAML-defined DAGs,
-								automatic retries, and a beautiful terminal dashboard built with Bubble Tea.
-							</p>
-							<div class="project-card-tags">
-								<span class="tag">Rust</span>
-								<span class="tag">CLI</span>
-								<span class="tag">YAML</span>
-							</div>
-							<div class="project-card-footer">
-								<a href="projects.html" class="project-link">View case study →</a>
-								<span class="status">
-									<span class="status-dot wip"></span>
-									In progress
-								</span>
-							</div>
-						</div>
-					</article>
-
-					<!-- Project card 3 -->
-					<article class="card project-card">
-						<div class="card-body">
-							<p class="project-card-number">03 / 03</p>
-							<h3 class="project-card-title">Hypertext Notes</h3>
-							<p class="project-card-desc">
-								A personal knowledge base exploring hypermedia-driven UIs using Datastar.
-								Zero JS frameworks, purely hypermedia controls and server-sent events.
-							</p>
-							<div class="project-card-tags">
-								<span class="tag">Datastar</span>
-								<span class="tag">SSE</span>
-								<span class="tag">Python</span>
-							</div>
-							<div class="project-card-footer">
-								<a href="projects.html" class="project-link">View case study →</a>
-								<span class="status">
-									<span class="status-dot"></span>
-									Live
-								</span>
-							</div>
-						</div>
-					</article>
-				</div>
-
-				<div style="text-align:center; margin-top: var(--space-xl);">
-					<a href="projects.html" class="btn btn-outline">All Projects →</a>
+				<div class="about__sidebar">
+					<div class="about__fact">
+						<span class="about__fact-icon">📚</span>
+						<span>Currently reading: <em>Stucture and Interpretation of Computer Programs</em></span>
+					</div>
+					<div class="about__fact">
+						<span class="about__fact-icon">🧗</span>
+						<span>Climbs outdoors on weekends</span>
+					</div>
+					<div class="about__fact">
+						<span class="about__fact-icon">⌨️</span>
+						<span>Daily driver: Arch Linux + NeoVim</span>
+					</div>
+					<div class="about__fact">
+						<span class="about__fact-icon">🌱</span>
+						<span>Currently exploring: systems programming &amp; functional programming with Lisp</span>
+					</div>
 				</div>
 			</div>
 		</section>
 
-		<!-- ════════════════════════ LATEST POSTS ════════════════════════ -->
-		<section class="section">
-			<div class="container">
-				<p class="section-label">Thinking</p>
-				<div class="section-title">
-					<h2>Latest from the Blog</h2>
+		<!-- SKILLS -->
+		<section class="section skills" id="skills">
+			<div class="section__label">02 / skills</div>
+			<h2 class="section__heading">What I work with</h2>
+			<div class="skills__grid">
+
+				<div class="skill-card">
+					<div class="skill-card__header">
+						<span class="skill-card__icon">🌐</span>
+						<h3>Web Development</h3>
+					</div>
+					<ul class="skill-card__list">
+						<li>HTML &amp; CSS (semantic, accessible)</li>
+						<li>JavaScript (SAP UI5, ES6+)</li>
+						<li>Java</li>
+						<li>REST APIs</li>
+						<li>Git &amp; GitHub</li>
+					</ul>
+					<div class="skill-card__level skill-card__level--strong">Strong</div>
 				</div>
 
-				<div class="posts-list">
-					<a href="blog.html" class="post-row">
-						<span class="post-date">Mar 2025</span>
-						<span class="post-title">Why I stopped reaching for React</span>
-						<span class="tag tag-ochre post-tag">Opinion</span>
-					</a>
-					<a href="blog.html" class="post-row">
-						<span class="post-date">Feb 2025</span>
-						<span class="post-title">Hypermedia is back, and it's better than ever</span>
-						<span class="tag post-tag">Deep Dive</span>
-					</a>
-					<a href="blog.html" class="post-row">
-						<span class="post-date">Jan 2025</span>
-						<span class="post-title">Building observable systems from day one</span>
-						<span class="tag post-tag">Engineering</span>
-					</a>
-					<a href="blog.html" class="post-row">
-						<span class="post-date">Dec 2024</span>
-						<span class="post-title">The quiet joy of boring technology</span>
-						<span class="tag tag-ochre post-tag">Opinion</span>
-					</a>
+				<div class="skill-card">
+					<div class="skill-card__header">
+						<span class="skill-card__icon">⚙️</span>
+						<h3>Low-Level &amp; Systems</h3>
+					</div>
+					<ul class="skill-card__list">
+						<li>C (learning)</li>
+						<li>Rust (early stages)</li>
+						<li>Memory management</li>
+						<li>Linux internals</li>
+						<li>Compiler basics</li>
+					</ul>
+					<div class="skill-card__level skill-card__level--growing">Actively growing</div>
 				</div>
 
-				<div style="margin-top: var(--space-lg);">
-					<a href="blog.html" class="btn btn-ghost">All posts <span class="arrow">→</span></a>
+				<div class="skill-card">
+					<div class="skill-card__header">
+						<span class="skill-card__icon">🛠️</span>
+						<h3>Tools &amp; Workflow</h3>
+					</div>
+					<ul class="skill-card__list">
+						<li>NeoVim</li>
+						<li>Arch Linux / Bash</li>
+						<li>tmux</li>
+						<li>Docker (basics)</li>
+						<li>Make / build systems</li>
+					</ul>
+					<div class="skill-card__level skill-card__level--strong">Part of daily life</div>
 				</div>
 			</div>
 		</section>
 
-		<!-- ═══════════════════════════ FOOTER ═══════════════════════════ -->
+		<!-- PROJECTS -->
+		<section class="section projects" id="projects">
+			<div class="section__label">03 / projects</div>
+			<h2 class="section__heading">Things I've built</h2>
+			<div class="projects__grid">
+
+				<article class="project-card">
+					<div class="project-card__meta">
+						<span class="tag tag--small">Web</span>
+						<span class="tag tag--small">Node.js</span>
+					</div>
+					<h3 class="project-card__title">Project Alpha</h3>
+					<p class="project-card__desc">
+						A full-stack web app I built to solve a real problem I had. Taught me a lot about
+						REST API design and database schema decisions.
+					</p>
+					<div class="project-card__links">
+						<a href="#" class="link-arrow">GitHub →</a>
+						<a href="#" class="link-arrow">Live →</a>
+					</div>
+				</article>
+
+				<article class="project-card">
+					<div class="project-card__meta">
+						<span class="tag tag--small">C</span>
+						<span class="tag tag--small">Systems</span>
+					</div>
+					<h3 class="project-card__title">Memory Allocator</h3>
+					<p class="project-card__desc">
+						Implementing malloc from scratch as a learning exercise. A humbling experience
+						that changed how I think about every line of high-level code I write.
+					</p>
+					<div class="project-card__links">
+						<a href="#" class="link-arrow">GitHub →</a>
+					</div>
+				</article>
+
+				<article class="project-card">
+					<div class="project-card__meta">
+						<span class="tag tag--small">JavaScript</span>
+						<span class="tag tag--small">CLI</span>
+					</div>
+					<h3 class="project-card__title">NeoVim Config</h3>
+					<p class="project-card__desc">
+						My hand-crafted NeoVim setup. Lua-based, opinionated, and deeply personal.
+						Treated as a living document — always evolving.
+					</p>
+					<div class="project-card__links">
+						<a href="#" class="link-arrow">GitHub →</a>
+					</div>
+				</article>
+
+				<article class="project-card project-card--highlight">
+					<div class="project-card__meta">
+						<span class="tag tag--small">Reading</span>
+						<span class="tag tag--small">Notes</span>
+					</div>
+					<h3 class="project-card__title">Book Notes</h3>
+					<p class="project-card__desc">
+						A public collection of notes from technical books I've read — K&amp;R C, SICP,
+						The Linux Programming Interface, and more. Writing to understand.
+					</p>
+					<div class="project-card__links">
+						<a href="#" class="link-arrow">Read →</a>
+					</div>
+				</article>
+			</div>
+		</section>
+
+		<!-- CV -->
+		<section class="section cv" id="cv">
+			<div class="section__label">04 / cv</div>
+			<h2 class="section__heading">Background</h2>
+			<div class="cv__timeline">
+
+				<div class="cv__entry">
+					<div class="cv__date">2025 — present</div>
+					<div class="cv__body">
+						<h3>Self-directed learning</h3>
+						<p>Deep dive into systems programming — C, Rust, OS internals, compiler design. Reading seriously, building things to understand.</p>
+					</div>
+				</div>
+
+				<div class="cv__entry">
+					<div class="cv__date">2018 — 2025</div>
+					<div class="cv__body">
+						<h3>Web Developer — Accenture</h3>
+						<p>Built and maintained web applications for multiple clients. Worked with JS (SAP UI5), Java and SAP BTP.</p>
+					</div>
+				</div>
+
+				<div class="cv__entry">
+					<div class="cv__date">2017 — 2018</div>
+					<div class="cv__body">
+						<h3>Acertar o Rumo - Programação em Java</h3>
+						<p>Universidade de Coimbra. An advanced Java programming course. <a href="https://www.uc.pt/fctuc/dei/acertarorumo/" class="link-arrow">More info here</a></p>
+					</div>
+				</div>
+
+				<div class="cv__entry">
+					<div class="cv__date">2011 — 2014</div>
+					<div class="cv__body">
+						<h3>BsC. in Sociology</h3>
+						<p>Universidade de Coimbra.</p>
+					</div>
+				</div>
+			</div>
+			<a href="#" class="btn btn--outline">Download full CV (PDF)</a>
+		</section>
+
+		<!-- CONTACT -->
+		<section class="section contact" id="contact">
+			<div class="section__label">05 / contact</div>
+			<h2 class="section__heading">Say hello</h2>
+			<p class="contact__sub">
+				Open to interesting opportunities — full-time, contract, or collaboration.
+				Especially curious about roles that touch systems, performance, or the web platform.
+			</p>
+			<div class="contact__links">
+				<a href="mailto:jrlouceiro@live.com" class="contact__link">
+					<span class="contact__link-label">Email</span>
+					<span class="contact__link-value"><span>jrlouceiro@live.com</span>
+					→</span>
+				</a>
+				<a href="https://github.com/joaoLouceiro" target="_blank" rel="noopener" class="contact__link">
+					<span class="contact__link-label">GitHub</span>
+					<span class="contact__link-value">github.com/joaoLouceiro →</span>
+				</a>
+				<a href="https://linkedin.com/in/joao-louceiro" target="_blank" rel="noopener" class="contact__link">
+					<span class="contact__link-label">LinkedIn</span>
+					<span class="contact__link-value">linkedin.com/in/joao-louceiro →</span>
+				</a>
+			</div>
+		</section>
+
+		<!-- FOOTER -->
 		<footer class="footer">
-			<div class="container footer-inner">
-				<span class="footer-copy">© 2025 JLouceiro. Built with Datastar &amp; craft.</span>
-				<nav class="footer-links" aria-label="Footer navigation">
-					<a href="https://github.com/joaoLouceiro" target="_blank" rel="noopener">GitHub</a>
-					<a href="https://linkedin.com/in/joao-louceiro/" target="_blank" rel="noopener">LinkedIn</a>
-					<a href="contact.html">Contact</a>
-				</nav>
-			</div>
+			<span>Built by hand · JLouceiro · 2026</span>
+			<span class="footer__stack">HTML · CSS · Linux · ❤️</span>
 		</footer>
-
-		<script>
-			// Mobile nav toggle
-			const toggle = document.getElementById('nav-toggle');
-			const links  = document.getElementById('nav-links');
-			toggle.addEventListener('click', () => {
-				const open = links.classList.toggle('open');
-				toggle.setAttribute('aria-expanded', open);
-				});
-				
-				// Simple typewriter for hero role
-				const roles = ['Full-Stack Developer', 'Systems Thinker', 'Hypermedia Enthusiast', 'Open-Source Contributor'];
-				let ri = 0, ci = 0, deleting = false;
-				const el = document.getElementById('typed-role');
-				function type() {
-					const word = roles[ri];
-					el.textContent = deleting ? word.slice(0, ci--) : word.slice(0, ci++);
-					if (!deleting && ci > word.length) { deleting = true; setTimeout(type, 1800); return; }
-					if (deleting && ci < 0)            { deleting = false; ri = (ri + 1) % roles.length; ci = 0; }
-					setTimeout(type, deleting ? 45 : 90);
-				}
-				type();
-		</script>
 	</body>
 </html>

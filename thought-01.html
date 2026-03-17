@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Why I went low-level — Alex Ferreira</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Mono:wght@300;400;500&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <a href="index.html" class="nav__logo">~/alex</a>
+    <ul class="nav__links">
+      <li><a href="index.html#about">about</a></li>
+      <li><a href="index.html#skills">skills</a></li>
+      <li><a href="index.html#projects">projects</a></li>
+      <li><a href="thoughts.html" class="nav__active">thoughts</a></li>
+      <li><a href="index.html#contact">contact</a></li>
+      <li><a href="index.html#cv" class="nav__cv-link">cv</a></li>
+    </ul>
+  </nav>
+
+  <!-- POST -->
+  <article class="post">
+
+    <header class="post__header">
+      <a href="thoughts.html" class="post__back">← all thoughts</a>
+      <div class="post__meta">
+        <span class="tag tag--small">systems</span>
+        <time datetime="2025-03-01">1 March 2025</time>
+      </div>
+      <h1 class="post__title">Why I went low-level</h1>
+      <p class="post__lede">
+        After years of building for the web, I kept bumping into things I didn't
+        understand. Pointers. Memory. What the CPU actually does. I decided to find out.
+      </p>
+    </header>
+
+    <div class="post__body">
+
+      <p>
+        There's a moment every web developer eventually hits. You're debugging something —
+        a memory leak, a weird performance cliff, a mysterious crash in production — and
+        you realise you're guessing. Not reasoning. Guessing. I hit that wall one too many
+        times and decided to go down.
+      </p>
+
+      <h2>The thing about abstractions</h2>
+
+      <p>
+        Abstractions are gifts. They let you build things without needing to understand
+        everything underneath. But they have a cost: you can use them without understanding
+        them. For a while, that's fine. Eventually, you start to feel it — a kind of
+        helplessness when something goes wrong below the layer you know.
+      </p>
+
+      <p>
+        I wanted to stop feeling that. Not because low-level programming is
+        inherently superior, but because I think you make better high-level decisions
+        when you understand what's below you.
+      </p>
+
+      <h2>What I started with</h2>
+
+      <p>
+        I picked up K&amp;R C. Then <em>Computer Systems: A Programmer's Perspective</em>.
+        Then I started writing a small memory allocator from scratch — not to ship it,
+        but to really understand what <code>malloc</code> does when I call it.
+      </p>
+
+      <blockquote class="post__quote">
+        Writing malloc yourself is like disassembling a clock. Suddenly you see gears
+        everywhere — in every abstraction you've ever used.
+      </blockquote>
+
+      <p>
+        I'm not going to pretend it was smooth. C is unforgiving. Segfaults are
+        informative in a brutal way. But the feedback loop is honest, which I've come
+        to appreciate. It reminds me of climbing.
+      </p>
+
+      <h2>Where I am now</h2>
+
+      <p>
+        I'm still primarily a web developer. But when I write JavaScript now, I think
+        about what the engine is doing. When I use a framework, I wonder about its
+        allocations. These aren't intrusive thoughts — they're background context that
+        makes me a better engineer.
+      </p>
+
+      <p>
+        Next up: Rust. I want to understand ownership at a deep level, not just well
+        enough to silence the borrow checker.
+      </p>
+
+    </div>
+
+    <footer class="post__footer">
+      <a href="thoughts.html" class="btn btn--outline">← Back to thoughts</a>
+    </footer>
+
+  </article>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <span>Built by hand · Alex Ferreira · 2025</span>
+    <span class="footer__stack">HTML · CSS · Linux · ❤️</span>
+  </footer>
+
+</body>
+</html>

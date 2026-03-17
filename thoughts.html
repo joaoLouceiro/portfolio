@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thoughts — Alex Ferreira</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Mono:wght@300;400;500&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <a href="index.html" class="nav__logo">~/alex</a>
+    <ul class="nav__links">
+      <li><a href="index.html#about">about</a></li>
+      <li><a href="index.html#skills">skills</a></li>
+      <li><a href="index.html#projects">projects</a></li>
+      <li><a href="thoughts.html" class="nav__active">thoughts</a></li>
+      <li><a href="index.html#contact">contact</a></li>
+      <li><a href="index.html#cv" class="nav__cv-link">cv</a></li>
+    </ul>
+  </nav>
+
+  <!-- PAGE HEADER -->
+  <header class="page-header">
+    <div class="page-header__inner">
+      <p class="hero__eyebrow">notes · observations · half-formed ideas</p>
+      <h1 class="page-header__title">Thoughts</h1>
+      <p class="page-header__sub">
+        I write to understand. These are notes on things I'm learning, patterns I notice,
+        and ideas that don't fit anywhere else.
+      </p>
+    </div>
+  </header>
+
+  <!-- THOUGHTS LIST -->
+  <main class="section thoughts-list" id="thoughts">
+
+    <div class="thoughts-filter">
+      <span class="thoughts-filter__label">filter:</span>
+      <span class="tag tag--filter tag--active">all</span>
+      <span class="tag tag--filter">systems</span>
+      <span class="tag tag--filter">web</span>
+      <span class="tag tag--filter">climbing</span>
+      <span class="tag tag--filter">tools</span>
+    </div>
+
+    <div class="thoughts-grid">
+
+      <article class="thought-card thought-card--featured">
+        <a href="thought-01.html" class="thought-card__link" aria-label="Read: Why I went low-level"></a>
+        <div class="thought-card__meta">
+          <span class="tag tag--small">systems</span>
+          <time class="thought-card__date" datetime="2025-03-01">1 Mar 2025</time>
+        </div>
+        <h2 class="thought-card__title">Why I went low-level</h2>
+        <p class="thought-card__excerpt">
+          After years of building for the web, I kept bumping into things I didn't
+          understand. Pointers. Memory. What the CPU actually does. I decided to find out.
+        </p>
+        <span class="thought-card__read">Read →</span>
+      </article>
+
+      <article class="thought-card">
+        <a href="#" class="thought-card__link" aria-label="Read: NeoVim as a philosophy"></a>
+        <div class="thought-card__meta">
+          <span class="tag tag--small">tools</span>
+          <time class="thought-card__date" datetime="2025-02-14">14 Feb 2025</time>
+        </div>
+        <h2 class="thought-card__title">NeoVim as a philosophy</h2>
+        <p class="thought-card__excerpt">
+          It's not about speed. It's about deliberate composition — building an environment
+          that reflects how you actually think.
+        </p>
+        <span class="thought-card__read">Read →</span>
+      </article>
+
+      <article class="thought-card">
+        <a href="#" class="thought-card__link" aria-label="Read: What climbing taught me about debugging"></a>
+        <div class="thought-card__meta">
+          <span class="tag tag--small">climbing</span>
+          <span class="tag tag--small">web</span>
+          <time class="thought-card__date" datetime="2025-01-28">28 Jan 2025</time>
+        </div>
+        <h2 class="thought-card__title">What climbing taught me about debugging</h2>
+        <p class="thought-card__excerpt">
+          On a route, you can't skip steps. You have to be exactly where you are.
+          Debugging is the same — the answer is always in the wall.
+        </p>
+        <span class="thought-card__read">Read →</span>
+      </article>
+
+      <article class="thought-card">
+        <a href="#" class="thought-card__link" aria-label="Read: Notes on K&R C"></a>
+        <div class="thought-card__meta">
+          <span class="tag tag--small">systems</span>
+          <time class="thought-card__date" datetime="2025-01-10">10 Jan 2025</time>
+        </div>
+        <h2 class="thought-card__title">Notes on K&amp;R C</h2>
+        <p class="thought-card__excerpt">
+          Reading the original. What surprised me, what I missed the first time, and why
+          every programmer should sit with this book at least once.
+        </p>
+        <span class="thought-card__read">Read →</span>
+      </article>
+
+      <article class="thought-card">
+        <a href="#" class="thought-card__link" aria-label="Read: The case for reading slowly"></a>
+        <div class="thought-card__meta">
+          <span class="tag tag--small">tools</span>
+          <time class="thought-card__date" datetime="2024-12-20">20 Dec 2024</time>
+        </div>
+        <h2 class="thought-card__title">The case for reading slowly</h2>
+        <p class="thought-card__excerpt">
+          Technical books aren't novels. The density is the point. I've started treating
+          a single chapter like a week's work.
+        </p>
+        <span class="thought-card__read">Read →</span>
+      </article>
+
+      <article class="thought-card">
+        <a href="#" class="thought-card__link" aria-label="Read: What I misunderstood about the web"></a>
+        <div class="thought-card__meta">
+          <span class="tag tag--small">web</span>
+          <time class="thought-card__date" datetime="2024-12-05">5 Dec 2024</time>
+        </div>
+        <h2 class="thought-card__title">What I misunderstood about the web</h2>
+        <p class="thought-card__excerpt">
+          Five years of web dev and I had very hazy ideas about TCP, sockets, and what
+          "a request" actually is. The lower I go, the more I see.
+        </p>
+        <span class="thought-card__read">Read →</span>
+      </article>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <span>Built by hand · Alex Ferreira · 2025</span>
+    <span class="footer__stack">HTML · CSS · Linux · ❤️</span>
+  </footer>
+
+</body>
+</html>
