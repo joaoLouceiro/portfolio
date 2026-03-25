@@ -1,5 +1,5 @@
 /* ============================================
-   PORTFOLIO — Alex Ferreira
+   PORTFOLIO — João Louceiro
    Natural & earthy · Curious & learning-driven
    ============================================ */
 
@@ -958,7 +958,7 @@ img {
   }
 
   .nav__links {
-    gap: 1rem;
+    display: none;
   }
 
   .section {
